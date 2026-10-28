@@ -1,0 +1,53 @@
+POST http://localhost:8180/realms/tasktracker/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&client_id=tasktracker-dev&username=alice&password=alice
+
+> {% client.global.set("token", response.body.access_token); %}
+
+###
+
+GET http://localhost:5238/tasks?page=1&pageSize=2&sort=
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET http://localhost:5238/admin/tasks/
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET http://localhost:5238/tasks/01a17966-e0e2-7e4e-983b-a828fef7bfb6
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST http://localhost:5238/tasks/
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "title":"Last task"
+}
+
+###
+
+PUT http://localhost:5238/tasks/01a1796e-0038-7484-a4ea-9370f2800a8c
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "title":"That's a finished task",
+  "done":true
+}
+
+###
+
+DELETE http://localhost:5238/tasks/01a172e0-9656-7e6f-8790-28c3e77dd138
+Accept: application/json
+Authorization: Bearer {{token}}
