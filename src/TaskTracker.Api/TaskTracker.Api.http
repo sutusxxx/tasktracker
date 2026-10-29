@@ -7,7 +7,7 @@ grant_type=password&client_id=tasktracker-dev&username=alice&password=alice
 
 ###
 
-GET http://localhost:5238/tasks?page=1&pageSize=2&sort=
+GET http://localhost:5238/tasks?page=1&pageSize=2&sort=1
 Accept: application/json
 Authorization: Bearer {{token}}
 

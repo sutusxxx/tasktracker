@@ -445,3 +445,4 @@
 /Users/lacikaxxx/Development/TaskTracker/tests/TaskTracker.Api.Tests/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/lacikaxxx/Development/TaskTracker/tests/TaskTracker.Api.Tests/bin/Debug/net10.0/Microsoft.IdentityModel.Tokens.dll
 /Users/lacikaxxx/Development/TaskTracker/tests/TaskTracker.Api.Tests/bin/Debug/net10.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/lacikaxxx/Development/TaskTracker/tests/TaskTracker.Api.Tests/obj/Debug/net10.0/TaskTracker.Api.Tests.sourcelink.json

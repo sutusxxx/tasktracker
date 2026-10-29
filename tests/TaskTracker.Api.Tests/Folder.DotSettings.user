@@ -5,6 +5,9 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6519361e_002Ddf09_002D48a3_002Dbdfa_002D59eac8e714a4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Create_then_get_returns_the_task" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::A52C94DA-B4D9-89E6-FC38-C02D9AF46762::net10.0::TaskTracker.Api.Tests.TaskEndpointTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A52C94DA-B4D9-89E6-FC38-C02D9AF46762::net10.0::TaskTracker.Api.Tests.TaskQueryTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A52C94DA-B4D9-89E6-FC38-C02D9AF46762::net10.0::TaskTracker.Api.Tests.TaskAuthorizationTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A52C94DA-B4D9-89E6-FC38-C02D9AF46762::net10.0::TaskTracker.Api.Tests.TaskCrudTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aa2dd366_002D52ed_002D478e_002Db85e_002D4941a94f9059/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Createthengetreturnsthetask" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;

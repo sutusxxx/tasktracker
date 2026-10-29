@@ -129,3 +129,4 @@
 /Users/lacikaxxx/Development/TaskTracker/src/TaskTracker.Api/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/lacikaxxx/Development/TaskTracker/src/TaskTracker.Api/bin/Debug/net10.0/Microsoft.IdentityModel.Tokens.dll
 /Users/lacikaxxx/Development/TaskTracker/src/TaskTracker.Api/bin/Debug/net10.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/lacikaxxx/Development/TaskTracker/src/TaskTracker.Api/obj/Debug/net10.0/TaskTracker.Api.sourcelink.json
