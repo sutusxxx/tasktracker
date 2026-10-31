@@ -11,5 +11,6 @@ internal sealed class TaskItemConfiguration : IEntityTypeConfiguration<TaskItem>
         builder.Property(t => t.Title).HasMaxLength(200);
         builder.Property(t => t.OwnerId).HasMaxLength(64);
         builder.HasIndex(t => new { t.OwnerId, t.CreatedAt });
+        builder.Property(t => t.Version).IsRowVersion();
     }
 }

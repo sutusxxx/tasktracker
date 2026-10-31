@@ -9,7 +9,7 @@ namespace TaskTracker.Api.Tasks;
 internal static class TaskEndpoints
 {
     private static readonly Expression<Func<TaskItem, TaskResponse>> ToResponse =
-        t => new TaskResponse(t.Id, t.Title, t.OwnerId, t.Done, t.CreatedAt);
+        t => new TaskResponse(t.Id, t.Title, t.OwnerId, t.Done, t.CreatedAt,  t.Version);
 
     public static void MapTaskEndpoints(this IEndpointRouteBuilder app)
     {
@@ -48,13 +48,13 @@ internal static class TaskEndpoints
         {
             var task = new TaskItem
             {
-                Title = request.Title,
+                Title = request.Title.Trim(),
                 OwnerId = user.GetUserId()
             };
             db.Tasks.Add(task);
             await db.SaveChangesAsync(ct);
             return TypedResults.Created($"/tasks/{task.Id}",
-                new TaskResponse(task.Id, task.Title, task.OwnerId, task.Done, task.CreatedAt));
+                new TaskResponse(task.Id, task.Title, task.OwnerId, task.Done, task.CreatedAt, task.Version));
         });
 
         group.MapPut("/{id:guid}", async (Guid id, UpdateTaskRequest request, AppDbContext db, ClaimsPrincipal user, CancellationToken ct) =>
@@ -62,11 +62,12 @@ internal static class TaskEndpoints
             var userId = user.GetUserId();
             var task = await db.Tasks.FirstOrDefaultAsync(t => t.Id == id && t.OwnerId == userId, ct);
             if (task is null) return Results.NotFound();
-
+            
+            db.Entry(task).Property(t => t.Version).OriginalValue = request.Version;
             task.Title = request.Title;
             task.Done = request.Done;
             await db.SaveChangesAsync(ct);
-            return Results.NoContent();
+            return Results.Ok(new TaskResponse(task.Id, task.Title, task.OwnerId, task.Done, task.CreatedAt,  task.Version));
         });
 
         group.MapDelete("/{id:guid}", async (Guid id, AppDbContext db, ClaimsPrincipal user, CancellationToken ct) =>

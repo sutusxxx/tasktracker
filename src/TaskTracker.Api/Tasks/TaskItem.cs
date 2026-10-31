@@ -7,4 +7,5 @@ internal sealed class TaskItem
     public required string OwnerId { get; set; }
     public bool Done { get; set; }
     public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
+    public uint Version  { get; set; }
 }

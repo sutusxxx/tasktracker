@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using TaskTracker.Api.Auth;
 using TaskTracker.Api.Data;
+using TaskTracker.Api.Errors;
 using TaskTracker.Api.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,6 +42,8 @@ builder.Services.AddAuthorizationBuilder()
     .AddPolicy(Policies.Admin, policy => policy.RequireRole("admin"));
 
 builder.Services.Configure<RouteHandlerOptions>(options => options.ThrowOnBadRequest = false);
+
+builder.Services.AddExceptionHandler<ConcurrencyExceptionHandler>();
 
 var app = builder.Build();
 
